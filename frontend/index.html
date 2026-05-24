@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Financial Intelligence Platform
+    </title>
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW -->
+
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- PLATFORM SHELL -->
+
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <h2>FinIntel</h2>
+
+                    <p>AI Finance Platform</p>
+
+                </div>
+
+            </div>
+
+            <nav class="nav-menu">
+
+                <button
+                    class="nav-link active"
+                    onclick="showPage('home', this)"
+                >
+                    🏠 Home
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('dashboard', this)"
+                >
+                    📊 Dashboard
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('ai', this)"
+                >
+                    🧠 AI Insights
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('news', this)"
+                >
+                    📰 Live News
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('risk', this)"
+                >
+                    📈 Risk Meter
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('compare', this)"
+                >
+                    ⚔ Compare
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('leaderboard', this)"
+                >
+                    🏆 Leaderboard
+                </button>
+
+                <button
+                    class="nav-link"
+                    onclick="showPage('reports', this)"
+                >
+                    📄 Reports
+                </button>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <!-- HOME PAGE -->
+
+            <section
+                id="homePage"
+                class="page active-page"
+            >
+
+                <div class="platform-hero">
+
+                    <p class="tag">
+                        Bluestock Fintech • AI Powered Intelligence
+                    </p>
+
+                    <h1>
+                        AI Financial Intelligence Platform
+                    </h1>
+
+                    <p class="subtitle">
+
+                        Analyze companies using AI insights,
+                        risk intelligence, live financial news,
+                        score breakdowns and professional reports.
+
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            onclick="showPage('dashboard')"
+                        >
+                            Start Analysis
+                        </button>
+
+                        <button
+                            onclick="showPage('ai')"
+                            class="secondary-btn"
+                        >
+                            Explore AI Insights
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- FEATURE SHOWCASE -->
+
+                <div class="feature-showcase">
+
+                    <div class="feature-tile">
+
+                        <span>🧠</span>
+
+                        <h3>AI Insights</h3>
+
+                        <p>
+                            Generate intelligent company
+                            analysis from financial indicators.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-tile">
+
+                        <span>📈</span>
+
+                        <h3>Risk Detection</h3>
+
+                        <p>
+                            Visualize financial risk using
+                            smart scoring and risk meters.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-tile">
+
+                        <span>📰</span>
+
+                        <h3>Live News</h3>
+
+                        <p>
+                            Track real-time company news
+                            and market signals.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-tile">
+
+                        <span>⚔</span>
+
+                        <h3>Comparison</h3>
+
+                        <p>
+                            Compare companies through
+                            financial battle-style analytics.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-tile">
+
+                        <span>🏆</span>
+
+                        <h3>Leaderboard</h3>
+
+                        <p>
+                            Discover top companies by health,
+                            profit margin and sales.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-tile">
+
+                        <span>📄</span>
+
+                        <h3>Reports</h3>
+
+                        <p>
+                            Download professional PDF reports
+                            for selected companies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- DASHBOARD PAGE -->
+
+            <section
+                id="dashboardPage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        📊 Company Dashboard
+                    </h1>
+
+                    <p>
+                        Search any company and view
+                        financial metrics with charts.
+                    </p>
+
+                </div>
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="companyInput"
+                        list="companySuggestions"
+                        placeholder="Enter company symbol..."
+                    >
+
+                    <datalist id="companySuggestions"></datalist>
+
+                    <button onclick="searchCompany()">
+                        Search
+                    </button>
+
+                </div>
+
+                <div
+                    id="companyInfo"
+                    class="company-panel hidden"
+                ></div>
+
+                <div class="chart-row">
+
+                    <div class="chart-box">
+
+                        <div class="chart-title">
+                            📈 Net Profit Trend
+                        </div>
+
+                        <canvas id="profitChart"></canvas>
+
+                    </div>
+
+                    <div class="chart-box">
+
+                        <div class="chart-title">
+                            💰 Cash Flow Movement
+                        </div>
+
+                        <canvas id="cashChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AI PAGE -->
+
+            <section
+                id="aiPage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        🧠 AI Financial Insights
+                    </h1>
+
+                    <p>
+                        Search from Dashboard to generate
+                        AI insights and market mood.
+                    </p>
+
+                </div>
+
+                <div
+                    id="aiInsightsContainer"
+                    class="ai-container"
+                >
+
+                    <div class="ai-placeholder">
+
+                        Search a company from Dashboard
+                        to generate AI insights.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- NEWS PAGE -->
+
+            <section
+                id="newsPage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        📰 Live Financial News
+                    </h1>
+
+                    <p>
+                        Company-specific live financial
+                        news powered by NewsAPI.
+                    </p>
+
+                </div>
+
+                <div
+                    id="newsContainer"
+                    class="news-container"
+                >
+
+                    <div class="news-loading">
+
+                        Search a company from Dashboard
+                        to load live financial news.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RISK PAGE -->
+
+            <section
+                id="riskPage"
+                class="page"
+            >
+
+                <div
+                    id="riskMeterSection"
+                    class="risk-meter-section hidden"
+                >
+
+                    <h2 class="risk-title">
+                        📊 Risk Meter Visualizer
+                    </h2>
+
+                    <div class="risk-container">
+
+                        <div class="risk-circle">
+
+                            <div
+                                id="riskValue"
+                                class="risk-value"
+                            >
+                                0%
+                            </div>
+
+                        </div>
+
+                        <div class="risk-details">
+
+                            <div
+                                id="riskLevel"
+                                class="risk-level"
+                            >
+                                MEDIUM RISK
+                            </div>
+
+                            <div
+                                id="riskRecommendation"
+                                class="risk-recommendation"
+                            >
+                                HOLD
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- COMPARE PAGE -->
+
+            <section
+                id="comparePage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        ⚔ Compare Companies
+                    </h1>
+
+                    <p>
+                        Compare two companies using
+                        health score, sales and profitability.
+                    </p>
+
+                </div>
+
+                <div class="compare-inputs">
+
+                    <input
+                        type="text"
+                        id="company1"
+                        placeholder="First company"
+                    >
+
+                    <input
+                        type="text"
+                        id="company2"
+                        placeholder="Second company"
+                    >
+
+                    <button onclick="compareCompanies()">
+                        Compare
+                    </button>
+
+                </div>
+
+                <div
+                    id="comparisonResult"
+                    class="comparison-result hidden"
+                ></div>
+
+            </section>
+
+            <!-- LEADERBOARD PAGE -->
+
+            <section
+                id="leaderboardPage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        🏆 Financial Leaderboard
+                    </h1>
+
+                    <p>
+                        Rank companies by financial health,
+                        profit margin and sales.
+                    </p>
+
+                </div>
+
+                <div class="leaderboard-controls">
+
+                    <button onclick="loadLeaderboard('health_score')">
+                        Top Health Score
+                    </button>
+
+                    <button onclick="loadLeaderboard('profit_margin')">
+                        Top Profit Margin
+                    </button>
+
+                    <button onclick="loadLeaderboard('sales')">
+                        Top Sales
+                    </button>
+
+                </div>
+
+                <div
+                    id="leaderboardContainer"
+                    class="leaderboard-container"
+                ></div>
+
+            </section>
+
+            <!-- REPORTS PAGE -->
+
+            <section
+                id="reportsPage"
+                class="page"
+            >
+
+                <div class="page-header">
+
+                    <h1>
+                        📄 Financial Report Export
+                    </h1>
+
+                    <p>
+                        Generate downloadable PDF reports
+                        for any company.
+                    </p>
+
+                </div>
+
+                <div class="report-center-card">
+
+                    <h2>
+                        Download Company Report
+                    </h2>
+
+                    <p>
+                        Enter a company symbol and export
+                        a professional PDF report.
+                    </p>
+
+                    <div class="search-box">
+
+                        <input
+                            type="text"
+                            id="reportCompanyInput"
+                            placeholder="Enter company symbol..."
+                        >
+
+                        <button onclick="
+                            const company =
+                            document
+                            .getElementById(
+                                'reportCompanyInput'
+                            )
+                            .value
+                            .trim()
+                            .toUpperCase();
+
+                            if(company){
+
+                                window.open(
+                                    'http://127.0.0.1:8000/report/' +
+                                    company +
+                                    '/',
+                                    '_blank'
+                                );
+
+                            }else{
+
+                                alert(
+                                    'Please enter a company symbol'
+                                );
+                            }
+                        ">
+
+                            📄 Download Report
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
