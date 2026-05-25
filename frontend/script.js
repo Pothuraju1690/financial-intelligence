@@ -12,7 +12,7 @@ async function loadCompanySuggestions() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/company-list/"
+            "https://financial-intelligence-pjgt.onrender.com/company-list/"
         );
 
         const data = await response.json();
@@ -103,7 +103,7 @@ async function searchCompany() {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:8000/companies/${company}/details/`
+            `https://financial-intelligence-pjgt.onrender.com/companies/${company}/details/`
         );
 
         const data = await response.json();
@@ -387,7 +387,7 @@ async function loadAIInsights(company){
     try{
 
         const response = await fetch(
-            `http://127.0.0.1:8000/insights/${company}/`
+            `https://financial-intelligence-pjgt.onrender.com/insights/${company}/`
         );
 
         const data = await response.json();
@@ -550,7 +550,7 @@ async function loadAIInsights(company){
                         class="report-download-btn"
                         onclick="
                             window.open(
-                                'http://127.0.0.1:8000/report/${data.company}/',
+                                'https://financial-intelligence-pjgt.onrender.com/report/${data.company}/',
                                 '_blank'
                             )
                         "
@@ -743,7 +743,7 @@ async function loadCompanyNews(company) {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:8000/news/${company}/`
+            `https://financial-intelligence-pjgt.onrender.com/news/${company}/`
         );
 
         const data = await response.json();
@@ -858,7 +858,7 @@ async function compareCompanies() {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:8000/compare/?company1=${company1}&company2=${company2}`
+            `https://financial-intelligence-pjgt.onrender.com/compare/?company1=${company1}&company2=${company2}`
         );
 
         const data = await response.json();
@@ -1028,7 +1028,7 @@ async function loadLeaderboard(
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/leaderboard/"
+            "https://financial-intelligence-pjgt.onrender.com/leaderboard/"
         );
 
         const data = await response.json();
