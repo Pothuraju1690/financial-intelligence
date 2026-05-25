@@ -1353,53 +1353,151 @@ function updateRiskMeter(data){
 
     riskSection.innerHTML = `
 
-        <h2 class="risk-title">
-            📊 Risk Meter Visualizer
-        </h2>
+    <h2 class="risk-title">
+        📊 Risk Meter Visualizer
+    </h2>
 
-        <div class="risk-container">
+    <div class="risk-container">
 
-            <div
-                class="risk-circle"
-                style="
-                    background:
-                    conic-gradient(
-                        #00c3ff ${riskValue}%,
-                        rgba(255,255,255,0.08) 0%
-                    );
-                "
-            >
+        <div
+            class="risk-circle"
+            style="
+                background:
+                conic-gradient(
+                    #00c3ff ${riskValue}%,
+                    rgba(255,255,255,0.08) 0%
+                );
+            "
+        >
 
-                <div class="risk-inner">
+            <div class="risk-inner">
 
-                    <div class="risk-value">
+                <div class="risk-value">
 
-                        ${riskValue.toFixed(0)}%
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="risk-details">
-
-                <div class="risk-level">
-
-                    ${riskLevel}
-
-                </div>
-
-                <div class="risk-recommendation">
-
-                    ${recommendation}
+                    ${riskValue.toFixed(0)}%
 
                 </div>
 
             </div>
 
         </div>
-    `;
+
+        <div class="risk-details">
+
+            <div class="risk-level">
+
+                ${riskLevel}
+
+            </div>
+
+            <div class="risk-recommendation">
+
+                ${recommendation}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+         RISK ANALYSIS CONTENT
+    ========================== -->
+
+    <div class="risk-analysis-box">
+
+        <h2 class="risk-analysis-title">
+            🧠 AI Risk Analysis
+        </h2>
+
+        <p class="risk-analysis-text">
+
+            ${data.company} currently shows a
+            <strong>${riskLevel}</strong>
+            profile based on profitability,
+            financial stability, growth momentum,
+            liquidity position and overall
+            health score analysis.
+
+        </p>
+
+        <div class="risk-points-grid">
+
+            <div class="risk-point-card">
+
+                <h3>
+                    📈 Profitability
+                </h3>
+
+                <p>
+
+                    Profit margin of
+                    ${Number(data.health.profit_margin).toFixed(2)}%
+                    indicates the company's
+                    earnings efficiency and
+                    operational performance.
+
+                </p>
+
+            </div>
+
+            <div class="risk-point-card">
+
+                <h3>
+                    💰 Revenue Strength
+                </h3>
+
+                <p>
+
+                    Total sales of
+                    ₹${Number(data.health.sales).toLocaleString()}
+                    reflect the company's
+                    business scale and
+                    market presence.
+
+                </p>
+
+            </div>
+
+            <div class="risk-point-card">
+
+                <h3>
+                    🏆 Financial Health
+                </h3>
+
+                <p>
+
+                    Health score of
+                    ${Number(data.health.health_score).toFixed(2)}
+                    suggests the company’s
+                    overall financial quality
+                    and balance sheet strength.
+
+                </p>
+
+            </div>
+
+            <div class="risk-point-card">
+
+                <h3>
+                    ⚡ AI Recommendation
+                </h3>
+
+                <p>
+
+                    Based on current financial
+                    indicators, the AI engine
+                    recommends:
+                    <strong>${recommendation}</strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+`;
 }
 
 function setupPreviewStates(){
