@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 
 from api.views import (
 
@@ -22,7 +23,24 @@ from api.views import (
     export_company_report
 )
 
+# =========================================
+# HOME PAGE
+# =========================================
+
+def home(request):
+    return HttpResponse("Financial Intelligence Dashboard Backend Live ✅")
+
+
 urlpatterns = [
+
+    # =========================================
+    # HOME
+    # =========================================
+
+    path(
+        '',
+        home
+    ),
 
     # =========================================
     # ADMIN
