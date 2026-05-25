@@ -15,7 +15,11 @@ SECRET_KEY = 'django-insecure-379fe-31(m97ov(%k7a8up4imduen6j+)i)i0k($fj4ons8&a=
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "financial-intelligence-pjgt.onrender.com",
+    "127.0.0.1",
+    "localhost"
+]
 
 
 # INSTALLED APPS
